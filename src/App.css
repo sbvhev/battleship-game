@@ -1,38 +1,102 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  gap: 2px;
+  margin-left: 20px;
+  border: 4px solid burlywood;
+}
+
+.tile {
+  width: 30px;
+  height: 30px;
+  background-color: lightgrey;
+  position: relative;
+}
+
+.tile img {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+}
+
+.game-over {
+  margin-top: 20px;
+  font-weight: bold;
+  color: red;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.score > div {
+  display: flex;
+  margin-bottom: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.App > div {
+  display: flex;
+}
+
+img {
+  height: 40px;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.result > img {
+  height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .board {
+    margin-left: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App > div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  img {
+    height: 18px;
+  }
+
+  .result > img {
+    height: 15px;
+  }
+
+  .result {
+    margin-left: 4px;
+  }
+
+  .score > div {
+    flex-basis: calc(50% - 10px);
+    margin: 5px;
+    box-sizing: border-box;
+  }
+
+  .score {
+    width: 326px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-top: 20px;
   }
 }
